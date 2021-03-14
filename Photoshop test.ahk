@@ -17,10 +17,24 @@ RemoveToolTip:
     ToolTip
 Return
 
+; use `%
 #IfWinActive ahk_exe Photoshop.exe
 F1:: 
-    ToolTip, create a vector group, 100, 100
+    ToolTip, create a vector group,
     SetTimer, RemoveToolTip, -500
+    Send, ^+!n
+    Sleep, 1
+    Send ^g
+    Send v
+    Send 4
+    Send p
+    Send {F2}
+    ; group name
+    Send Black Vector 40`%
+    Send {Tab}
+    Send 1
+    Send {Enter}
+
 Return
 
 #If
