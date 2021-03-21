@@ -37,5 +37,9 @@ F1::
 
 Return
 
+; select layer up or down
+CapsLock & w::Send, !]
+CapsLock & s::Send, ![
+
 #If
 
