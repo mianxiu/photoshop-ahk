@@ -24,21 +24,32 @@ F1::
     SetTimer, RemoveToolTip, -500
     Send, ^+!n
     Sleep, 1
-    Send ^gv4p
-    Send {F2}
+    Send ^gvp{F2}
     ; group name
-    Send Black Vector 40`%
-    Send {Tab}
-    Send 1
-    Send {Enter}
+    Send Black Vector
+    Send {Tab}1{Enter}
 
 Return
 
-; select layer up or down
-CapsLock & w::Send, !]
-CapsLock & s::Send, ![
+; select or move layer up or down
+CapsLock & w::
+    GetKeyState, state, Ctrl
+    if state = D
+        Send, ^]
+    Else
+        Send, !]
+Return
+
+CapsLock & s::
+    GetKeyState, state, Ctrl
+    if state = D
+        Send, ^[
+    Else
+        Send, ![
+Return
+
 ; open layer blending options - gradient overlay
-CapsLock & f::
+CapsLock & g::
     Send, !lyg
 Return
 #If
