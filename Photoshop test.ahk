@@ -19,6 +19,7 @@ Return
 
 ; use `%
 #IfWinActive ahk_exe Photoshop.exe
+    LWin::RButton
 F1:: 
     ToolTip, create a vector group,
     SetTimer, RemoveToolTip, -500
@@ -29,6 +30,10 @@ F1::
     Send Black Vector
     Send {Tab}1{Enter}
 
+Return
+;F2 is rename
+F3::
+    Send, ^+!n
 Return
 
 ; select or move layer up or down
@@ -52,5 +57,33 @@ Return
 CapsLock & g::
     Send, !lyg
 Return
+
+; scroll
+Tab::Tab
+Tab & w::
+    MouseClick,WheelUp,,,10,0,D,R
+return
+Tab & s::
+    MouseClick,WheelDown,,,10,0,D,R
+return
+/*
+replace text
+*/
+::t::top
+::b::bottom
+::l::left
+::r::right
+::f::front
+::s::side
+::m::mid
+::bg::background
+::bk::back
+;
+::ll::line
+::ol::outline
+::is::inside
+
+;
+
 #If
 
