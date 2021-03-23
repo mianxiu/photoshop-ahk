@@ -55,8 +55,14 @@ Return
 
 ; open layer blending options - gradient overlay
 CapsLock & g::
-    Send, !lyg
+    GetKeyState, state, Shift
+    if state = D
+        Send, !lyp
+    Else
+        Send, !lyg
+    
 Return
+
 
 ; scroll
 Tab::Tab
@@ -76,6 +82,7 @@ replace text
 ::f::front
 ::s::side
 ::m::mid
+::e::edge
 ::bg::background
 ::bk::back
 ;
