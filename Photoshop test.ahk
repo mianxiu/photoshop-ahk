@@ -62,7 +62,7 @@ CapsLock & g::
         Send, !lyg
 
 Return
-
+;todo tab+ 窗口并排等
 ; scroll
 Tab::Tab
 Tab & w::
@@ -84,11 +84,12 @@ replace text
 ::e::edge
 ::bg::background
 ::bk::back
+::h::highlight
 ;
 ::ll::line
 ::ol::outline
 ::is::inside
-
+::mk::mask
 ;
 
 #If
