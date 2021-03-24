@@ -57,12 +57,11 @@ Return
 CapsLock & g::
     GetKeyState, state, Shift
     if state = D
-        Send, !lyp
+        Send, !lya
     Else
         Send, !lyg
-    
-Return
 
+Return
 
 ; scroll
 Tab::Tab
