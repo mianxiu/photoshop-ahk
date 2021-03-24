@@ -66,11 +66,54 @@ Return
 ; scroll
 Tab::Tab
 Tab & w::
-    MouseClick,WheelUp,,,10,0,D,R
+    MouseClick,WheelUp,,,6,0,D,R
 return
 Tab & s::
-    MouseClick,WheelDown,,,10,0,D,R
+    MouseClick,WheelDown,,,6,0,D,R
 return
+;capslock + ` + 1-6 执行转line
+CapsLock & `::
+    ToolTip, convert vector to 1-6 px line,
+    Input, UserInput,V T5 L4 C,*,1,2,3,4,5,6,7,8,9
+    if (ErrorLevel = "Max")
+    {
+        MsgBox, You entered "%UserInput%", which is the maximum length of text.
+        return
+    }
+    if (ErrorLevel = "Timeout")
+    {
+        MsgBox, You entered "%UserInput%" at which time the input timed out.
+        return
+    }
+    if (ErrorLevel = "NewInput")
+        return
+    If InStr(ErrorLevel, "EndKey:")
+    {
+        MsgBox, You entered "%UserInput%" and terminated the input with %ErrorLevel%.
+        return
+    }
+    ; 否则，找到了匹配。
+    if (UserInput = "1")
+        ToolTip, 1,
+    else if (UserInput = "2")
+        ToolTip, 2,
+    else if (UserInput = "3")
+        ToolTip, 3,
+    else if (UserInput = "4")
+        ToolTip, 4,
+    else if (UserInput = "5")
+        ToolTip, 5,
+    else if (UserInput = "5")
+        ToolTip, 6,
+    else if (UserInput = "5")
+        ToolTip, 7,
+    else if (UserInput = "5")
+        ToolTip, 8,
+    else if (UserInput = "5")
+        ToolTip, 9,
+
+    SetTimer, RemoveToolTip, -120
+Return
 /*
 replace text
 */
