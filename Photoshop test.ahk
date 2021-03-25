@@ -83,13 +83,20 @@ return
 Tab & s::
     MouseClick,WheelDown,,,6,0,D,R
 return
+
+Tab & e::
+    Send, !waw
+    Send, !wa{Down}{Down}{Down}{Enter}
+    Sleep, 1000
+    Send, !w2{Enter}
+Return
 ;capslock + ` + 1-6 执行转line
 CapsLock & `::
     ToolTip, convert vector to 1-6 px line,
     Input, UserInput,V T5 L4 C,*,1,2,3,4,5,6,7,8,9
     if (ErrorLevel = "Max")
     {
-        ToolTip, You entered "%UserInput%", which is the maximum length of text.
+        ToolTip, You entered "%UserInput%", which is the maximum length of text
         SetTimer, RemoveToolTip, -120
         return
     }
