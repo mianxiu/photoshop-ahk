@@ -70,6 +70,10 @@ CapsLock & v::
    Send, !lyp
 Return
 
+CapsLock & x::
+ send, !lo
+Return
+
 ;todo tab+ 窗口并排等
 ; scroll
 Tab::Tab
