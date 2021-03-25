@@ -63,15 +63,15 @@ CapsLock & f::
 Return
 
 CapsLock & c::
-   Send, !lyc
+    Send, !lyc
 Return
 
 CapsLock & v::
-   Send, !lyp
+    Send, !lyp
 Return
 
 CapsLock & x::
- send, !lo
+    send, !lo
 Return
 
 ;todo tab+ 窗口并排等
@@ -89,19 +89,22 @@ CapsLock & `::
     Input, UserInput,V T5 L4 C,*,1,2,3,4,5,6,7,8,9
     if (ErrorLevel = "Max")
     {
-        MsgBox, You entered "%UserInput%", which is the maximum length of text.
+        ToolTip, You entered "%UserInput%", which is the maximum length of text.
+        SetTimer, RemoveToolTip, -120
         return
     }
     if (ErrorLevel = "Timeout")
     {
-        MsgBox, You entered "%UserInput%" at which time the input timed out.
+        ToolTip, You entered "%UserInput%" at which time the input timed out.
+        SetTimer, RemoveToolTip, -120
         return
     }
     if (ErrorLevel = "NewInput")
         return
     If InStr(ErrorLevel, "EndKey:")
     {
-        MsgBox, You entered "%UserInput%" and terminated the input with %ErrorLevel%.
+        ToolTip, You entered "%UserInput%" and terminated the input with %ErrorLevel%.
+        SetTimer, RemoveToolTip, -120
         return
     }
     ; 否则，找到了匹配。
@@ -115,13 +118,13 @@ CapsLock & `::
         ToolTip, 4,
     else if (UserInput = "5")
         ToolTip, 5,
-    else if (UserInput = "5")
+    else if (UserInput = "6")
         ToolTip, 6,
-    else if (UserInput = "5")
+    else if (UserInput = "7")
         ToolTip, 7,
-    else if (UserInput = "5")
+    else if (UserInput = "8")
         ToolTip, 8,
-    else if (UserInput = "5")
+    else if (UserInput = "9")
         ToolTip, 9,
 
     SetTimer, RemoveToolTip, -120
