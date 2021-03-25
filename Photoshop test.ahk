@@ -54,14 +54,22 @@ CapsLock & s::
 Return
 
 ; open layer blending options - gradient overlay
-CapsLock & g::
+CapsLock & f::
     GetKeyState, state, Shift
     if state = D
         Send, !lya
     Else
-        Send, !lyg
-
+        Send, !lyn
 Return
+
+CapsLock & c::
+   Send, !lyc
+Return
+
+CapsLock & v::
+   Send, !lyp
+Return
+
 ;todo tab+ 窗口并排等
 ; scroll
 Tab::Tab
