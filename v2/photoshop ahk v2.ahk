@@ -10,9 +10,17 @@ Capslock & F1::{
     ps.DoJavaScript("alert('save to jpg')")
 }
 
-CapsLock & Numpad1::{
+F5::{
     ps := ComObjActive("Photoshop.Application")
-    ps.DoJavaScript("alert('save to jpg')")
+    char :="
+    (
+        var descriptor = app.ActionDescriptor
+        //to smartobject
+        var a = app.stringIDToTypeID("newPlacedLayer")
+        var b =app.stringIDToTypeID("placedLayerConvertToLayers")
+        executeAction(a,descriptor)
+    )"
+    ps.DoJavaScript(char)
 }
 
 #Space::{
