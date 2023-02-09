@@ -3,39 +3,10 @@
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
+; var
 
 /*
-修改快捷键 右ALT切换中英文输入 Pause切换输入法
-设置-键盘-高级设置 转换中英文=去掉Shift,改成Ctrl+空格快捷键
-   (如有必要-键盘-替代默认输入法）
-设置-语言-首选语言-中文-键盘-中／英文模式=切换去掉Shift,改成Ctrl+空格快捷键
-
-*/
-
-#IfWinActive ahk_exe Bridge.exe
-  ; place some thing to InDesign
-    CapsLock & d::
-
-	Process, Exist, InDesign.exe
-	PID := DllCall("GetCurrentProcessId")
-MsgBox A matching process has appeared (Process ID is %PID%).
-	;Send, !F{Up 4}{Right}{Up 2}{Enter}
-    Return
-#if
-
-RAlt::#Space
-Pause::#Space
-LWin & Space::return
-
-
-;
-
-
-
-/*
-不要重复给不同程序设置同一个按键映射，会冲突卡
-*/
-/*
+this scripts is only change Photoshop shortcut
 F1::
     If WinActive("ahk_exe Photoshop.exe")
         ToolTip, create a vector group, 100, 100
@@ -48,7 +19,6 @@ RemoveToolTip:
 Return
 
 ; use `%
-
 #IfWinActive ahk_exe Photoshop.exe
     LWin::RButton
 F1:: 
@@ -167,26 +137,7 @@ CapsLock & `::
 
     SetTimer, RemoveToolTip, -120
 Return
-/*
-replace text
-*/
-::t::top
-::b::bottom
-::l::left
-::r::right
-::f::front
-::s::side
-::m::mid
-::e::edge
-::bg::background
-::bk::back
-::h::highlight
-;
-::ll::line
-::ol::outline
-::is::inside
-::mk::mask
-;
+
 
 #If
 
