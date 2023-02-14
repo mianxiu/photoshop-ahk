@@ -1,5 +1,12 @@
 ﻿#Requires AutoHotkey v2.0
-;check process
+OnError LogError
+i := Integer("cause_error")
+
+LogError(exception, mode) {
+    FileAppend "Error on line " exception.Line ": " exception.Message "`n"
+        , "errorlog.txt"
+    return true
+}
 
 
 #HotIf WinActive("ahk_exe Photoshop.exe")
@@ -22,6 +29,8 @@ F5::{
     )"
     ps.DoJavaScript(char)
 }
+
+
 
 #Space::{
 ToolTip "Timed ToolTip`nThis will be displayed for 1 seconds.",100,150
